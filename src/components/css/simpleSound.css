@@ -1,0 +1,18 @@
+.soundWidget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    width: 8vh;
+    padding: 1rem;
+    font-size: .7rem;
+    margin: .5rem;
+    text-align: center;
+    background: orange;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 8px 6px -6px black;
+    -moz-box-shadow: 0 8px 6px -6px black;
+    box-shadow: 0 8px 6px -6px black;
+
+
+}

@@ -1,0 +1,43 @@
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.mainTitle {
+    border: none;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 5vw;
+    background-color: orange;
+    color: wheat;
+    font-weight:  bolder;
+    font-size: 3rem;
+    max-width: 90vw;
+    border-radius: 45px;
+}
+
+.vh40 {
+    height: 40vh;
+}
+
+.mainNextButton {
+    text-decoration: none;
+    border: none;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-bottom: 5vw;
+    background-color: orange;
+    color: wheat;
+    font-weight:  bolder;
+    font-size: 5rem;
+    max-width: 90vw;
+    border-radius: 90px;
+    box-shadow: black 0px 5px 3px ;
+}

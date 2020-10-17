@@ -1,0 +1,67 @@
+.divTitle {
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    
+}
+.mainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.title {
+    max-width: 60vw;
+    border: none;
+    padding: 1rem;
+    margin-top: 5vw;
+    background-color: orange;
+    color: wheat;
+    font-weight:  bolder;
+    font-size: 3rem;
+    max-width: 90vw;
+    border-radius: 45px;
+    box-shadow: black 0px 5px 3px ;
+}
+
+.soundsList {
+    width: 88vw;
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.soundButton {
+    background-color: red;
+    max-width: 20vw;
+    margin: 0 2rem 2rem 0;
+
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choiMenu {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 60vw;
+    text-align: center;
+    border: none;
+    padding: 1rem;
+    margin-top: 5vw;
+    background-color: orange;
+    color: wheat;
+    font-weight:  bolder;
+    font-size: 2rem;
+    max-width: 90vw;
+    border-radius: 45px;
+    box-shadow: black 0px 5px 3px ;
+}
