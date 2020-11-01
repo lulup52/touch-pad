@@ -1,0 +1,20 @@
+-faire un tableau de 4 x 4 
+-leur donner un style : fond blanc, bords noir
+
+
+-----expérience 1
+-au clic, le carré devien noir
+-après ca, faire 4 test
+* chaque secondes, le carré se déplace vers la gauche
+* chaque secondes, le carré se déplace vers la droite
+* chaque secondes, le carré se déplace vers la haut
+* chaque secondes, le carré se déplace vers le bas
+
+-----expérience 2
+-au clic, le carré devien noir
+* chaque secondes, les carés adjascents aux coté d'un carré noir deviennent noir à l'eur tour jusqu'à ce que la grille soit entièrement noir
+
+-----expérience 3
+-au clic, le carré devien noir
+* chaque secondes, les carés au carré que l'on vient de cliquer  deviennent noir à leur tour mais le carré noir sur lequel on aura cliqué redeviens blanc ainsi que tout
+les carré noir qui lui sont adjacent

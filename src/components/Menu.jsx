@@ -15,6 +15,10 @@ function Menu() {
             <Link className='choiMenu' to='/mypads'>
                 <div>My pads</div>
             </Link> 
+            <Link className='choiMenu' to='/blackSquare'>
+                <div>zone de test</div>
+            </Link> 
+           
        </div>
        
     </div>

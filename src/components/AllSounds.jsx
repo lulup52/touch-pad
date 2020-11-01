@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import database from '../data/database';
+import database from '../components/data/database';
 import './css/allSounds.css';
 import { Link } from 'react-router-dom';
 import SimpleSound from './SimpleSound'
@@ -10,12 +10,9 @@ function Menu() {
   const [isPlaying, setIsPlaying] =  useState(false);
 
 
-  const handlePlayPause = () => {
-    if (!isPlaying) {
-      setIsPlaying(!isPlaying);
-      console.log('clic')
-    }
-  }  
+  const handleSetIsPlaying = (val) => {
+    setIsPlaying(val)
+  }
 
   return (
     <div className="mainPage">
@@ -25,7 +22,7 @@ function Menu() {
       </div> 
       <div className='soundsList'>
         {
-          database[0].sounds.map((sound, i) => <SimpleSound handlePlayPause={handlePlayPause} i={i} data={sound}/>)
+          database[0].sounds.map((sound, i) => <SimpleSound i={i} handleSetIsPlaying={handleSetIsPlaying} isPlaying={isPlaying} data={sound}/>)
         }
       </div>
        

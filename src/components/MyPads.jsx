@@ -1,11 +1,12 @@
 import React from 'react';
-import database from '../data/database';
+import database from '../components/data/database';
 import './css/allSounds.css';
 import { Link } from 'react-router-dom';
 
 import HeaderMenu from './HeaderMenu'
 
 function Menu() {
+
 
   return (
     <div className="mainPage">

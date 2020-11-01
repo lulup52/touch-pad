@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+} 
+
+.caseWithe {
+    border: solid 1px black;
+    padding: 2rem;
+}
+
+.blackCase {
+    border: solid 1px white;
+    background-color: black;
+    padding: 2rem;
+    color: white;
+}

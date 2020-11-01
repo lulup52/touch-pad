@@ -6,6 +6,7 @@ import MainPage from './components/MainPage'
 import Menu from './components/Menu'
 import AllSounds from './components/AllSounds'
 import MyPads from './components/MyPads'
+import BlackSquare from './components/newFunctionality/testBlackSquare'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path ="/menu"><Menu /></Route>
           <Route path ="/allsounds"><AllSounds /></Route>
           <Route path ="/mypads"><MyPads /></Route>
+          <Route path ="/blackSquare"><BlackSquare /></Route>
           <Route exact path="/"><MainPage /></Route>
         </Switch>
       </Router>

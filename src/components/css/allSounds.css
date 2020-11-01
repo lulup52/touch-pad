@@ -30,6 +30,7 @@
 .soundsList {
     width: 88vw;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
    
 }

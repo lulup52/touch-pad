@@ -5,7 +5,7 @@
 
 const database =
     [
-        {sounds: [{name: 'medieval-sword-hit', from: './sounds/épé-sortie.wav'},{name: 'medieval-sword-hit-2', from: './sounds/épé-sortie.wav'},{name: 'Will', from: 'wilelm.wav'}, {name: 'crash', from: 'crash_leger-SF.mp3'}, {name: 'crash2', from: 'crash_leger-SF.mp3'} ,{name: 'wilelm 2', from: 'wilelm.wav'}]},
+        {sounds: [{name: 'SNCF ', from: 'https://lasonotheque.org/UPLOAD/mp3/0564.mp3'},{name: 'badum tsss', from: 'https://lasonotheque.org/UPLOAD/mp3/0433.mp3'},{name: 'Will', from: 'https://lasonotheque.org/UPLOAD/mp3/0477.mp3'}, {name: 'crash', from: 'crash_leger-SF.mp3'}, {name: 'crash2', from: 'crash_leger-SF.mp3'} ,{name: 'wilelm 2', from: 'wilelm.wav'}]},
         {playliste: 
         [
             {name: 'play-perso-1', sounds: [

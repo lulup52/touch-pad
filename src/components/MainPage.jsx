@@ -11,6 +11,7 @@ function MainPage() {
         <div className='vh40'>
             <Link className='mainNextButton'to='/menu' >Next</Link>
         </div>
+        
     </div>
   );
 }
