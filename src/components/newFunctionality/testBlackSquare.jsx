@@ -10,7 +10,9 @@ function BlackSquare() {
     const boardDimension = 4
     const startCase = '22'
     const [curentCase, setCurentCase] = useState('')
+    const [mode, setMode] = useState('BASIC')
 
+    
 
 /*-------------------Création du tableau vierge---------------------*/
     useEffect( () => {
@@ -28,10 +30,11 @@ function BlackSquare() {
         }
         setBoard(table)
       }, [])
- /*---------------------------le tableau ests crée----------------------------------------*/
-
+      /*---------------------------le tableau ests crée----------------------------------------*/
+      
+      /*---------------------------fonctionement simple de changement de couleur de la case sélectionée----------------------------------------*/
       const handleSwitchColor = (e) => {
-        //fonctionement simple de changement de couleur de la case sélectionée
+    
         // if(e.target.classList.contains('caseWithe')) {
         //     e.target.classList.remove("caseWithe");
         //     e.target.classList.add("blackCase")
@@ -106,7 +109,8 @@ function BlackSquare() {
                 
         }
         
-        
+ /*---------------------------controle haut bas droite gauche fonctionnel----------------------------------------*/
+
         const moveUp = () => {
             let upCase =`${parseInt(curentCase[0]) - 1}${parseInt(curentCase[1])}`
             if(upCase[1] <= (boardDimension - 1) && upCase[1] >=0 && upCase[0] <= (boardDimension - 1) && upCase[0] >=0) {
@@ -148,7 +152,8 @@ function BlackSquare() {
         }
 
         
-      
+/*---------------------------**fin controle haut bas droite gauche fonctionnel**----------------------------------------*/
+
 
 
 
@@ -184,15 +189,18 @@ function BlackSquare() {
             <button type='button' onClick={() => moveUp()}>
                 haut
             </button>
+            <div>
+                <button type='button' onClick={() => moveLeft()}>
+                    gauche
+                </button>
+                <button type='button' onClick={() => moveRight()}>
+                    droite
+                </button>
+            </div>
             <button type='button' onClick={() => moveDown()}>
                 bas
             </button>
-            <button type='button' onClick={() => moveLeft()}>
-                gauche
-            </button>
-            <button type='button' onClick={() => moveRight()}>
-                droite
-            </button>
+           
         </div>
     </div>
   );

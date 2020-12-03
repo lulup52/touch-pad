@@ -7,6 +7,8 @@ import Menu from './components/Menu'
 import AllSounds from './components/AllSounds'
 import MyPads from './components/MyPads'
 import BlackSquare from './components/newFunctionality/testBlackSquare'
+import Caroussel from './components/newFunctionality/testCarousel'
+import JeuDechec from './components/newFunctionality/JeuDechec'
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path ="/allsounds"><AllSounds /></Route>
           <Route path ="/mypads"><MyPads /></Route>
           <Route path ="/blackSquare"><BlackSquare /></Route>
+          <Route path ="/jeudechec"><JeuDechec /></Route>
           <Route exact path="/"><MainPage /></Route>
         </Switch>
       </Router>
