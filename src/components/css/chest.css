@@ -70,6 +70,14 @@
 }
 
 .seleced {
-    outline: 7px solid black;
-    outline-offset: -7px;
+    outline: 5px solid black;
+    outline-offset: -5px;
+}
+
+.selectable {
+    border: solid 1px black;
+    height: 80px;
+    width: 80px;
+    outline: 5px dashed red;
+    outline-offset: -8px;
 }

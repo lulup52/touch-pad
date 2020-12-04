@@ -11,6 +11,7 @@ function JeuDechec() {
     const [selecPiece, setSelecPiece] = useState('')
     const [selecPiecePos, setSelecPiecePos] = useState('')
     const [selecPieceDest, setSelecPieceDest] = useState('')
+    const [isPieceSelected, setIsPieceSelected] = useState(false)
 
 
     
@@ -31,7 +32,7 @@ function JeuDechec() {
     for (let i=1; i<= boardDimension; i++ ) {
          let tableRow =[]
         for (let j=1; j<= boardDimension; j++ ) {
-            const item = {case : `${i}${j}`}
+            const item = {case : `${i}${j}`, state : "caseWithe" }
             tableRow.push(item)
         }   
         table.push({row : tableRow})
@@ -109,14 +110,18 @@ function JeuDechec() {
 
 /*-------------------verification si la pièce et sélectionée et jouable ------------*/
 
-    const handlePieceMove = (e, pos, piece) => {
+    const handlePieceMove = async (e, pos, piece) => {
+        board.map(r => r.row.map(c => c.state = "caseWithe"))
         selectionPiece(e, pos, piece) 
         ChosePieceDest(e, pos)
+        posibleMoves(pos, piece)
+      
     }
 
 /*---------------------------gestion de la sélection des pièces----------------------------------------*/
     const selectionPiece = (e, pos, piece)  =>  {
         if (piece !== undefined && piece !== '') {
+
             setSelecPiece(e.target.id)
             setSelecPiecePos(pos)
             setSelecPieceDest("")
@@ -125,6 +130,35 @@ function JeuDechec() {
         }
         
         
+    }
+
+/*---------------------------affichage des mouvements possibles ------------------------------------*/
+
+    const posibleMoves = (pos, piece) => {
+        board.map(r=> r.row.map(c=> {
+            if (piece !== undefined) {
+                
+                // deplacement pion blanc
+                if (piece.includes('PionBlanc')) {
+                    if (c.piece === undefined) {
+
+                        if (parseInt(c.case) === parseInt(pos) + 10 || parseInt(c.case) === parseInt(pos) + 20 ) {
+                            c.state = 'selectable'
+                        }
+                    }
+                }
+                // deplacement pion noir
+                if (piece.includes('PionNoir')) {
+                    if (c.piece === undefined) {
+
+                        if (parseInt(c.case) === parseInt(pos) - 10 || parseInt(c.case) === parseInt(pos) - 20 ) {
+                            c.state = 'selectable'
+                        }
+                    }
+                }
+            }
+        }))
+            
     }
 /*---------------------------gestion de la destination de la pièce sélectionée----------------------------------------*/
 
@@ -209,12 +243,34 @@ function JeuDechec() {
             pieceMove(newPos, selecPiece)
         }
         
-    }      
+    }  
+    /*------------------------------déplacement CAVALIER-----------------------------------*/
+    if (selecPiece.includes('CavaBlanc') || selecPiece.includes('CavaNoir')) {
+        if (
+        
+            parseInt(pos) - 19 === parseInt(selecPiecePos) ||
+            parseInt(pos) - 21 === parseInt(selecPiecePos) ||
+            parseInt(pos) +19 === parseInt(selecPiecePos) ||
+            parseInt(pos) +21 === parseInt(selecPiecePos) ||
+            parseInt(pos) + 8 === parseInt(selecPiecePos) ||
+            parseInt(pos) -8 === parseInt(selecPiecePos) ||
+            parseInt(pos) + 12 === parseInt(selecPiecePos) ||
+            parseInt(pos) - 12 === parseInt(selecPiecePos) 
+            
+
+        ) { 
+            newPos = pos 
+            await setSelecPieceDest(newPos)
+            pieceMove(newPos, selecPiece)
+        }
+        
+    }     
+    
+    
             //réinitialisation des variables pour le prochain déplacement 
             
             setSelecPiece('')
             newPos = ""
-
         }
     }
 /*----------------------------déplacement de la pièce-------------------------------*/
@@ -252,7 +308,7 @@ function JeuDechec() {
                     {row.row.map((kase) => 
                     /*liste de boutons*/ 
 
-                        <button id={kase.piece} type='button' value={kase.case} className={`caseWithe ${selecPiece === kase.piece && selecPiece !== '' ? 'seleced' : "" }`} onClick={(e) => handlePieceMove(e, kase.case, kase.piece)}>
+                        <button id={kase.piece} type='button' value={kase.case} className={`${kase.state} ${selecPiece === kase.piece && selecPiece !== '' ? 'seleced' : "" }`} onClick={(e) => handlePieceMove(e, kase.case, kase.piece)}>
                             {kase.piece}
                             
                         </button>
