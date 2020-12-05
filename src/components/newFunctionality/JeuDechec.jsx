@@ -13,16 +13,10 @@ function JeuDechec() {
     const [selecPieceDest, setSelecPieceDest] = useState('')
     const [isPieceSelected, setIsPieceSelected] = useState(false)
 
-
-    
-
 /*-------------------Création du tableau ---------------------*/
     useEffect( () => {
         boardInit()
       }, [])
-
-
-
 
     const boardInit = () => {
     
@@ -106,8 +100,6 @@ function JeuDechec() {
 }
 /*---------------------------fin creation tableau (plateau)----------------------------------------*/
 
-
-
 /*-------------------verification si la pièce et sélectionée et jouable ------------*/
 
     const handlePieceMove = async (e, pos, piece) => {
@@ -135,28 +127,105 @@ function JeuDechec() {
 /*---------------------------affichage des mouvements possibles ------------------------------------*/
 
     const posibleMoves = (pos, piece) => {
-        board.map(r=> r.row.map(c=> {
+        let haut = []
+        let bas = []
+        let basPiece = false
+        let gauche = []
+        let droite = []
+        let droitePiece = false
+        let pionPiece = false
+
+        let selectableCases = []
+        board.map(r=> r.row.map((c, index)=> {
             if (piece !== undefined) {
                 
                 // deplacement pion blanc
                 if (piece.includes('PionBlanc')) {
-                    if (c.piece === undefined) {
 
-                        if (parseInt(c.case) === parseInt(pos) + 10 || parseInt(c.case) === parseInt(pos) + 20 ) {
-                            c.state = 'selectable'
+                    if (parseInt(c.case) === parseInt(pos) + 10 || parseInt(c.case) === parseInt(pos) + 20 ) {
+                        if(c.piece) {
+                            pionPiece = true
+                        } else if (!pionPiece) {
+                            selectableCases.push(c.case)
+
                         }
                     }
                 }
                 // deplacement pion noir
                 if (piece.includes('PionNoir')) {
-                    if (c.piece === undefined) {
 
-                        if (parseInt(c.case) === parseInt(pos) - 10 || parseInt(c.case) === parseInt(pos) - 20 ) {
-                            c.state = 'selectable'
+                    if (parseInt(c.case) === parseInt(pos) - 10 || parseInt(c.case) === parseInt(pos) - 20 ) {
+                        if(c.piece) {
+                            selectableCases = []
+                        } else  {
+                            selectableCases.push(c.case)
+
                         }
                     }
                 }
+                // deplacement tour
+                if (piece.includes('TourBlanc') || piece.includes('TourNoir')) {
+
+                    //a droite
+                    if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) > parseInt(pos[1]) ){
+                        if(c.piece) {
+                            droitePiece = true
+                        } else if (!droitePiece) {
+                            droite.push(c.case)
+
+                        }
+
+                    }
+                    //a gauche
+                    if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) < parseInt(pos[1]) ){
+                        if(c.piece) {
+                            gauche = []
+
+                        } else {
+                            gauche.push(c.case)
+
+                        }
+
+                    }
+                    //en bas
+                    if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) > parseInt(pos[0]) ){
+
+                        
+                        if(c.piece) {
+                            basPiece = true
+                        } else if (!basPiece) {
+                            bas.push(c.case)
+
+                        }
+
+                    }
+                    //en haut
+                    if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) < parseInt(pos[0])){
+                        if(c.piece) {
+                            haut = []
+                        } else {
+                            haut.push(c.case)
+
+                        }
+
+                    }
+
+                    
+                   
+                }
             }
+        }))
+       
+        selectableCases.push(...haut, ...bas, ...droite, ...gauche)
+        console.log(selectableCases)
+        
+        board.map(r => r.row.map(c => {
+            selectableCases.forEach(exemple => {
+                if(parseInt(c.case) === parseInt(exemple)) {
+                    c.state = 'selectable'
+
+                }
+            } )
         }))
             
     }
@@ -278,7 +347,6 @@ function JeuDechec() {
         console.log(selecPiece)
         board.map(r => r.row.map(c => {
 
-            console.log(newPos)
             if (c.piece !== undefined) {
                 if(c.piece.includes(selecPiece)) {
                     c.piece = ''
