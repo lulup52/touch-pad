@@ -131,6 +131,14 @@ function JeuDechec() {
         let basPiece = false
         let gauche = []
         let droite = []
+        let pieceHautPrenable = []
+        let pieceBasPrenable = []
+        let pieceGauchePrenable = []
+        let pieceDroitePrenable = []
+        let pieceHGPrenable = []
+        let pieceHDPrenable = []
+        let pieceBDPrenable = []
+        let pieceBGPrenable = []
         let pieceDiagBG = false
         let pieceDiagBD = false
         let pieceDiagHG = false
@@ -139,6 +147,7 @@ function JeuDechec() {
         let diagHD = []
         let droitePiece = false
         let pionPiece = false
+        let piecesPrenables = []
 
         let selectableCases = []
         board.map(r=> r.row.map((c, index)=> {
@@ -155,6 +164,11 @@ function JeuDechec() {
 
                         }
                     }
+                    if (parseInt(c.case) === parseInt(pos) + 9 || parseInt(c.case) === parseInt(pos) + 11 ) {
+                        if(c.piece) {
+                            piecesPrenables.push(c.case)
+                        } 
+                    }
                 }
                 // deplacement pion noir
                 if (piece.includes('PionNoir')) {
@@ -167,6 +181,12 @@ function JeuDechec() {
 
                         }
                     }
+                    if (parseInt(c.case) === parseInt(pos) - 9 || parseInt(c.case) === parseInt(pos) - 11 ) {
+                        if(c.piece) {
+                            pionPiece = true
+                            piecesPrenables.push(c.case)
+                        } 
+                    }
                 }
                 // deplacement tour
                 if (piece.includes('Tour')) {
@@ -175,6 +195,9 @@ function JeuDechec() {
                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) > parseInt(pos[1]) ){
                         if(c.piece) {
                             droitePiece = true
+                            if (pieceDroitePrenable.length ===0) {
+                                pieceDroitePrenable.push(c.case)
+                            }
                         } else if (!droitePiece) {
                             droite.push(c.case)
 
@@ -185,7 +208,8 @@ function JeuDechec() {
                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) < parseInt(pos[1]) ){
                         if(c.piece) {
                             gauche = []
-
+                            pieceGauchePrenable = []
+                            pieceGauchePrenable.push(c.case)
                         } else {
                             gauche.push(c.case)
 
@@ -194,10 +218,11 @@ function JeuDechec() {
                     }
                     //en bas
                     if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) > parseInt(pos[0]) ){
-
-                        
                         if(c.piece) {
                             basPiece = true
+                            if(pieceBasPrenable.length === 0) {
+                                pieceBasPrenable.push(c.case)
+                            }
                         } else if (!basPiece) {
                             bas.push(c.case)
 
@@ -208,6 +233,9 @@ function JeuDechec() {
                     if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) < parseInt(pos[0])){
                         if(c.piece) {
                             haut = []
+                            pieceHautPrenable = []
+                            pieceHautPrenable.push(c.case)
+
                         } else {
                             haut.push(c.case)
 
@@ -231,7 +259,7 @@ function JeuDechec() {
                         parseInt(pos) - 12 === parseInt(c.case) 
                     ) {
                         if (c.piece) {
-
+                            piecesPrenables.push(c.case)
                         } else {
                             
                             selectableCases.push(c.case)
@@ -247,6 +275,9 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             pieceDiagBG = true
+                            if (pieceBGPrenable.length ===0) {
+                                pieceBGPrenable.push(c.case)
+                            }
                         } else if (!pieceDiagBG) {
 
                             selectableCases.push(c.case)
@@ -258,6 +289,10 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             pieceDiagBD=true
+                            if(pieceBDPrenable.length===0) {
+                                pieceBDPrenable.push(c.case)
+                            }
+                            
                         } else if (!pieceDiagBD) {
 
                             selectableCases.push(c.case)
@@ -269,6 +304,8 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             diagHG = []
+                            pieceHGPrenable = []
+                            pieceHGPrenable.push(c.case)
                         } else {
                             diagHG.push(c.case)
                         }
@@ -279,6 +316,8 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             diagHD = []
+                            pieceHDPrenable = []
+                            pieceHDPrenable.push(c.case)
                         } else {
 
                             diagHD.push(c.case)
@@ -293,6 +332,9 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             pieceDiagBG = true
+                            if (pieceBGPrenable.length ===0) {
+                                pieceBGPrenable.push(c.case)
+                            }
                         } else if (!pieceDiagBG) {
 
                             selectableCases.push(c.case)
@@ -304,6 +346,9 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             pieceDiagBD=true
+                            if(pieceBDPrenable.length===0) {
+                                pieceBDPrenable.push(c.case)
+                            }
                         } else if (!pieceDiagBD) {
 
                             selectableCases.push(c.case)
@@ -315,6 +360,8 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             diagHG = []
+                            pieceHGPrenable = []
+                            pieceHGPrenable.push(c.case)
                         } else {
                             diagHG.push(c.case)
                         }
@@ -325,6 +372,8 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             diagHD = []
+                            pieceHDPrenable = []
+                            pieceHDPrenable.push(c.case)
                         } else {
 
                             diagHD.push(c.case)
@@ -335,6 +384,9 @@ function JeuDechec() {
                      if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) > parseInt(pos[1]) ){
                         if(c.piece) {
                             droitePiece = true
+                            if (pieceDroitePrenable.length ===0) {
+                                pieceDroitePrenable.push(c.case)
+                            }
                         } else if (!droitePiece) {
                             droite.push(c.case)
 
@@ -345,6 +397,8 @@ function JeuDechec() {
                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) < parseInt(pos[1]) ){
                         if(c.piece) {
                             gauche = []
+                            pieceGauchePrenable = []
+                            pieceGauchePrenable.push(c.case)
 
                         } else {
                             gauche.push(c.case)
@@ -358,6 +412,9 @@ function JeuDechec() {
                         
                         if(c.piece) {
                             basPiece = true
+                            if(pieceBasPrenable.length === 0) {
+                                pieceBasPrenable.push(c.case)
+                            }
                         } else if (!basPiece) {
                             bas.push(c.case)
 
@@ -368,6 +425,8 @@ function JeuDechec() {
                     if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) < parseInt(pos[0])){
                         if(c.piece) {
                             haut = []
+                            pieceHautPrenable = []
+                            pieceHautPrenable.push(c.case)
                         } else {
                             haut.push(c.case)
 
@@ -382,6 +441,9 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             pieceDiagBG = true
+                            if (pieceBGPrenable.length ===0) {
+                                pieceBGPrenable.push(c.case)
+                            }
                         } else if (!pieceDiagBG) {
 
                             selectableCases.push(c.case)
@@ -393,6 +455,9 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             pieceDiagBD=true
+                            if(pieceBDPrenable.length===0) {
+                                pieceBDPrenable.push(c.case)
+                            }
                         } else if (!pieceDiagBD) {
 
                             selectableCases.push(c.case)
@@ -404,6 +469,8 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             diagHG = []
+                            pieceHGPrenable = []
+                            pieceHGPrenable.push(c.case)
                         } else {
                             diagHG.push(c.case)
                         }
@@ -414,6 +481,9 @@ function JeuDechec() {
                     ) {
                         if (c.piece) {
                             diagHD = []
+                            pieceHDPrenable = []
+                            pieceHDPrenable.push(c.case)
+                            
                         } else {
 
                             diagHD.push(c.case)
@@ -424,6 +494,9 @@ function JeuDechec() {
                      if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) === parseInt(pos[1]) +1 ){
                         if(c.piece) {
                             droitePiece = true
+                            if (pieceDroitePrenable.length ===0) {
+                                pieceDroitePrenable.push(c.case)
+                            }
                         } else if (!droitePiece) {
                             droite.push(c.case)
 
@@ -434,7 +507,8 @@ function JeuDechec() {
                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) === parseInt(pos[1]) -1 ){
                         if(c.piece) {
                             gauche = []
-
+                            pieceGauchePrenable = []
+                            pieceGauchePrenable.push(c.case)
                         } else {
                             gauche.push(c.case)
 
@@ -447,6 +521,9 @@ function JeuDechec() {
                         
                         if(c.piece) {
                             basPiece = true
+                            if(pieceBasPrenable.length === 0) {
+                                pieceBasPrenable.push(c.case)
+                            }
                         } else if (!basPiece) {
                             bas.push(c.case)
 
@@ -457,6 +534,8 @@ function JeuDechec() {
                     if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) === parseInt(pos[0]) - 1){
                         if(c.piece) {
                             haut = []
+                            pieceHautPrenable = []
+                            pieceHautPrenable.push(c.case)
                         } else {
                             haut.push(c.case)
 
@@ -468,8 +547,10 @@ function JeuDechec() {
 
             }
         }))
-       
+        
+        piecesPrenables.push(...pieceBasPrenable, ...pieceDroitePrenable, ...pieceGauchePrenable, ...pieceHautPrenable, ...pieceBGPrenable, ...pieceBDPrenable, ...pieceHDPrenable, ...pieceHGPrenable)
         selectableCases.push(...haut, ...bas, ...droite, ...gauche, ...diagHG, ...diagHD)
+        console.log(piecesPrenables)
         
         board.map(r => r.row.map(c => {
             selectableCases.forEach(exemple => {
@@ -477,9 +558,24 @@ function JeuDechec() {
                     c.state = 'selectable'
 
                 }
-            } )
+            })
+            if ( piece !== undefined && piece.includes('Blanc')) {
+
+                piecesPrenables.forEach(test => {
+                    if(parseInt(c.case) === parseInt(test) && c.piece.includes('Noir')) {
+                        c.state = 'piecePrenable'
+    
+                    }
+                })
+            } else if ( piece !== undefined && piece.includes('Noir')){
+                piecesPrenables.forEach(test => {
+                    if(parseInt(c.case) === parseInt(test) && c.piece.includes('Blanc')) {
+                        c.state = 'piecePrenable'
+    
+                    }
+                })
+            }
         }))
-            
     }
 /*---------------------------gestion de la destination de la pièce sélectionée----------------------------------------*/
 

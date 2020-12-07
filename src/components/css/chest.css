@@ -81,3 +81,11 @@
     outline: 5px dashed red;
     outline-offset: -8px;
 }
+
+.piecePrenable {
+    outline: dashed rgb(223, 0, 48);
+    outline-offset: -5px;
+    height: 80px;
+    width: 80px;
+    border: solid 8px black;
+}
