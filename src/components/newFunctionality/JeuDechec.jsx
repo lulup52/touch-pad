@@ -93,7 +93,6 @@ function JeuDechec() {
             a.piece = `PionNoir${a.case[1]}`
 
         }
-        console.log(a)
     }
     ))
     setBoard(table)
@@ -105,7 +104,7 @@ function JeuDechec() {
     const handlePieceMove = async (e, pos, piece) => {
         board.map(r => r.row.map(c => c.state = "caseWithe"))
         selectionPiece(e, pos, piece) 
-        ChosePieceDest(e, pos)
+        ChosePieceDest(e, pos, piece)
         posibleMoves(pos, piece)
       
     }
@@ -132,6 +131,12 @@ function JeuDechec() {
         let basPiece = false
         let gauche = []
         let droite = []
+        let pieceDiagBG = false
+        let pieceDiagBD = false
+        let pieceDiagHG = false
+        let pieceDiagHD = false
+        let diagHG = []
+        let diagHD = []
         let droitePiece = false
         let pionPiece = false
 
@@ -164,7 +169,7 @@ function JeuDechec() {
                     }
                 }
                 // deplacement tour
-                if (piece.includes('TourBlanc') || piece.includes('TourNoir')) {
+                if (piece.includes('Tour')) {
 
                     //a droite
                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) > parseInt(pos[1]) ){
@@ -213,11 +218,258 @@ function JeuDechec() {
                     
                    
                 }
+                if (piece.includes('Cava')) {
+
+                    if (
+                        parseInt(pos) - 19 === parseInt(c.case) ||
+                        parseInt(pos) - 21 === parseInt(c.case) ||
+                        parseInt(pos) +19 === parseInt(c.case) ||
+                        parseInt(pos) +21 === parseInt(c.case) ||
+                        parseInt(pos) + 8 === parseInt(c.case) ||
+                        parseInt(pos) -8 === parseInt(c.case) ||
+                        parseInt(pos) + 12 === parseInt(c.case) ||
+                        parseInt(pos) - 12 === parseInt(c.case) 
+                    ) {
+                        if (c.piece) {
+
+                        } else {
+                            
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+
+
+                }
+                if (piece.includes('Fou')) {
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 9 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) < parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            pieceDiagBG = true
+                        } else if (!pieceDiagBG) {
+
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 11 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) < parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            pieceDiagBD=true
+                        } else if (!pieceDiagBD) {
+
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 11 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) > parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            diagHG = []
+                        } else {
+                            diagHG.push(c.case)
+                        }
+
+                    }
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 9 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) > parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            diagHD = []
+                        } else {
+
+                            diagHD.push(c.case)
+                        }
+
+                    }
+                   
+                }
+                if (piece.includes('Dame')) {
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 9 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) < parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            pieceDiagBG = true
+                        } else if (!pieceDiagBG) {
+
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 11 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) < parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            pieceDiagBD=true
+                        } else if (!pieceDiagBD) {
+
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 11 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) > parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            diagHG = []
+                        } else {
+                            diagHG.push(c.case)
+                        }
+
+                    }
+                    if (
+                        (parseInt(pos[0] - c.case[0]) * 9 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) > parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            diagHD = []
+                        } else {
+
+                            diagHD.push(c.case)
+                        }
+
+                    }
+                     //a droite
+                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) > parseInt(pos[1]) ){
+                        if(c.piece) {
+                            droitePiece = true
+                        } else if (!droitePiece) {
+                            droite.push(c.case)
+
+                        }
+
+                    }
+                    //a gauche
+                    if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) < parseInt(pos[1]) ){
+                        if(c.piece) {
+                            gauche = []
+
+                        } else {
+                            gauche.push(c.case)
+
+                        }
+
+                    }
+                    //en bas
+                    if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) > parseInt(pos[0]) ){
+
+                        
+                        if(c.piece) {
+                            basPiece = true
+                        } else if (!basPiece) {
+                            bas.push(c.case)
+
+                        }
+
+                    }
+                    //en haut
+                    if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) < parseInt(pos[0])){
+                        if(c.piece) {
+                            haut = []
+                        } else {
+                            haut.push(c.case)
+
+                        }
+
+                    }
+                   
+                }
+                if (piece.includes('Roi')) {
+                    if (
+                        parseInt(pos) +9 === parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            pieceDiagBG = true
+                        } else if (!pieceDiagBG) {
+
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+                    if (
+                        parseInt(pos) + 11 === parseInt(c.case)
+                    ) {
+                        if (c.piece) {
+                            pieceDiagBD=true
+                        } else if (!pieceDiagBD) {
+
+                            selectableCases.push(c.case)
+                        }
+
+                    }
+                    if (
+                        parseInt(pos) - 11  === parseInt(c.case) 
+                    ) {
+                        if (c.piece) {
+                            diagHG = []
+                        } else {
+                            diagHG.push(c.case)
+                        }
+
+                    }
+                    if (
+                        parseInt(pos) - 9 === parseInt(c.case) 
+                    ) {
+                        if (c.piece) {
+                            diagHD = []
+                        } else {
+
+                            diagHD.push(c.case)
+                        }
+
+                    }
+                     //a droite
+                     if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) === parseInt(pos[1]) +1 ){
+                        if(c.piece) {
+                            droitePiece = true
+                        } else if (!droitePiece) {
+                            droite.push(c.case)
+
+                        }
+
+                    }
+                    //a gauche
+                    if ( parseInt(c.case[0]) === parseInt(pos[0]) && parseInt(c.case[1]) === parseInt(pos[1]) -1 ){
+                        if(c.piece) {
+                            gauche = []
+
+                        } else {
+                            gauche.push(c.case)
+
+                        }
+
+                    }
+                    //en bas
+                    if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) === parseInt(pos[0]) + 1 ){
+
+                        
+                        if(c.piece) {
+                            basPiece = true
+                        } else if (!basPiece) {
+                            bas.push(c.case)
+
+                        }
+
+                    }
+                    //en haut
+                    if ( parseInt(c.case[1]) === parseInt(pos[1]) && parseInt(c.case[0]) === parseInt(pos[0]) - 1){
+                        if(c.piece) {
+                            haut = []
+                        } else {
+                            haut.push(c.case)
+
+                        }
+
+                    }
+                   
+                }
+
             }
         }))
        
-        selectableCases.push(...haut, ...bas, ...droite, ...gauche)
-        console.log(selectableCases)
+        selectableCases.push(...haut, ...bas, ...droite, ...gauche, ...diagHG, ...diagHD)
         
         board.map(r => r.row.map(c => {
             selectableCases.forEach(exemple => {
@@ -231,122 +483,125 @@ function JeuDechec() {
     }
 /*---------------------------gestion de la destination de la pièce sélectionée----------------------------------------*/
 
-    const ChosePieceDest = async(e, pos) => {
+    const ChosePieceDest = async(e, pos, piece) => {
+
         let newPos = ""
-        if (selecPiece !== '' && e.target.id === '') {
-    /*------------------------------déplacement pion noir-----------------------------------*/
-            if (selecPiece.includes('PionNoir')) {
-                if (parseInt(selecPiecePos[0]) > parseInt(pos[0]) && parseInt(pos[0]) >= parseInt(selecPiecePos[0]) - 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) {
-                    newPos = pos
-                    await setSelecPieceDest(newPos)
-                    pieceMove(newPos, selecPiece)
-                }
-            }
-    /*------------------------------déplacement pion blanc-----------------------------------*/
-            if (selecPiece.includes('PionBlanc')) {
-                if (parseInt(selecPiecePos[0]) < parseInt(pos[0]) && parseInt(pos[0]) <= parseInt(selecPiecePos[0]) + 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) { 
-                    newPos = pos
-                    await setSelecPieceDest(newPos)
-                    pieceMove(newPos, selecPiece)
-                }
-            }
-    /*------------------------------déplacement TOUR -----------------------------------*/
-
-            if (selecPiece.includes('TourBlanc') || selecPiece.includes('TourNoir')) {
-                if (parseInt(selecPiecePos[1]) === parseInt(pos[1]) || 
-                parseInt(selecPiecePos[0]) === parseInt(pos[0])
-                ) { 
-                    newPos = pos
-                    await setSelecPieceDest(newPos)
-                    pieceMove(newPos, selecPiece)
-                }
-            }
-    /*------------------------------déplacement ROI-----------------------------------*/
-
-            if (selecPiece.includes('RoiBlanc') || selecPiece.includes('RoiNoir')) {
-                console.log("pos", pos , 'selecPiecePos', selecPiecePos)
-                if (
-                    parseInt(pos[1]) === parseInt(selecPiecePos[1]) && parseInt(pos[0] - 1) === parseInt(selecPiecePos[0]) ||
-                    parseInt(pos[1]) === parseInt(selecPiecePos[1]) && parseInt(pos[0]) === parseInt(selecPiecePos[0] - 1) ||
-                    parseInt(pos[1] - 1) === parseInt(selecPiecePos[1]) && parseInt(pos[0]) === parseInt(selecPiecePos[0]) ||
-                    parseInt(pos[1]) === parseInt(selecPiecePos[1] - 1) && parseInt(pos[0]) === parseInt(selecPiecePos[0]) ||
-                    parseInt(pos) === parseInt(selecPiecePos) + 11 ||
-                    parseInt(pos) === parseInt(selecPiecePos) - 11 ||
-                    parseInt(pos) === parseInt(selecPiecePos) - 9 ||
-                    parseInt(pos) === parseInt(selecPiecePos) + 9 
-                ) { 
-                    newPos = pos 
-                    await setSelecPieceDest(newPos)
-                    pieceMove(newPos, selecPiece)
-                }
-            }
-    /*------------------------------déplacement DAME-----------------------------------*/
-
-            if (selecPiece.includes('DameNoir') || selecPiece.includes('DameBlanc')) {
-                if (
-                    parseInt(pos[1]) === parseInt(selecPiecePos[1]) ||
-                    parseInt(pos[0]) === parseInt(selecPiecePos[0]) ||
-                    (parseInt(pos[0] - selecPiecePos[0]) * 9 ) + parseInt(selecPiecePos) === parseInt(pos) || 
-                    (parseInt(pos[0] - selecPiecePos[0]) * 11 ) + parseInt(selecPiecePos) === parseInt(pos) 
+        if (e.target.classList.value.includes("selectable")) {
+            
+                    if (selecPiece !== '' && e.target.id === '') {
+                /*------------------------------déplacement pion noir-----------------------------------*/
+                        if (selecPiece.includes('PionNoir')) {
+            
+                            if (parseInt(selecPiecePos[0]) > parseInt(pos[0]) && parseInt(pos[0]) >= parseInt(selecPiecePos[0]) - 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) {
+                                newPos = pos
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            }
+                        }
+                /*------------------------------déplacement pion blanc-----------------------------------*/
+                        if (selecPiece.includes('PionBlanc')) {
+                            if (parseInt(selecPiecePos[0]) < parseInt(pos[0]) && parseInt(pos[0]) <= parseInt(selecPiecePos[0]) + 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) { 
+                                newPos = pos
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            }
+                        }
+                /*------------------------------déplacement TOUR -----------------------------------*/
+            
+                        if (selecPiece.includes('TourBlanc') || selecPiece.includes('TourNoir')) {
+                            if (parseInt(selecPiecePos[1]) === parseInt(pos[1]) || 
+                            parseInt(selecPiecePos[0]) === parseInt(pos[0])
+                            ) { 
+                                newPos = pos
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            }
+                        }
+                /*------------------------------déplacement ROI-----------------------------------*/
+            
+                        if (selecPiece.includes('RoiBlanc') || selecPiece.includes('RoiNoir')) {
+                            if (
+                                parseInt(pos[1]) === parseInt(selecPiecePos[1]) && parseInt(pos[0] - 1) === parseInt(selecPiecePos[0]) ||
+                                parseInt(pos[1]) === parseInt(selecPiecePos[1]) && parseInt(pos[0]) === parseInt(selecPiecePos[0] - 1) ||
+                                parseInt(pos[1] - 1) === parseInt(selecPiecePos[1]) && parseInt(pos[0]) === parseInt(selecPiecePos[0]) ||
+                                parseInt(pos[1]) === parseInt(selecPiecePos[1] - 1) && parseInt(pos[0]) === parseInt(selecPiecePos[0]) ||
+                                parseInt(pos) === parseInt(selecPiecePos) + 11 ||
+                                parseInt(pos) === parseInt(selecPiecePos) - 11 ||
+                                parseInt(pos) === parseInt(selecPiecePos) - 9 ||
+                                parseInt(pos) === parseInt(selecPiecePos) + 9 
+                            ) { 
+                                newPos = pos 
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            }
+                        }
+                /*------------------------------déplacement DAME-----------------------------------*/
+            
+                        if (selecPiece.includes('DameNoir') || selecPiece.includes('DameBlanc')) {
+                            if (
+                                parseInt(pos[1]) === parseInt(selecPiecePos[1]) ||
+                                parseInt(pos[0]) === parseInt(selecPiecePos[0]) ||
+                                (parseInt(pos[0] - selecPiecePos[0]) * 9 ) + parseInt(selecPiecePos) === parseInt(pos) || 
+                                (parseInt(pos[0] - selecPiecePos[0]) * 11 ) + parseInt(selecPiecePos) === parseInt(pos) 
+                                
+            
+                            ) { 
+                                newPos = pos 
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            }
+                            
+                        }   
+                /*------------------------------déplacement FOU-----------------------------------*/
+            
+                if (selecPiece.includes('FouBlanc') || selecPiece.includes('FouNoir')) {
+                    if (
                     
-
-                ) { 
-                    newPos = pos 
-                    await setSelecPieceDest(newPos)
-                    pieceMove(newPos, selecPiece)
-                }
+                        (parseInt(pos[0] - selecPiecePos[0]) * 9 ) + parseInt(selecPiecePos) === parseInt(pos) || 
+                        (parseInt(pos[0] - selecPiecePos[0]) * 11 ) + parseInt(selecPiecePos) === parseInt(pos) 
+                        
+            
+                    ) { 
+                        newPos = pos 
+                        await setSelecPieceDest(newPos)
+                        pieceMove(newPos, selecPiece)
+                    }
+                    
+                }  
+                /*------------------------------déplacement CAVALIER-----------------------------------*/
+                if (selecPiece.includes('CavaBlanc') || selecPiece.includes('CavaNoir')) {
+                    if (
+                    
+                        parseInt(pos) - 19 === parseInt(selecPiecePos) ||
+                        parseInt(pos) - 21 === parseInt(selecPiecePos) ||
+                        parseInt(pos) +19 === parseInt(selecPiecePos) ||
+                        parseInt(pos) +21 === parseInt(selecPiecePos) ||
+                        parseInt(pos) + 8 === parseInt(selecPiecePos) ||
+                        parseInt(pos) -8 === parseInt(selecPiecePos) ||
+                        parseInt(pos) + 12 === parseInt(selecPiecePos) ||
+                        parseInt(pos) - 12 === parseInt(selecPiecePos) 
+                        
+            
+                    ) { 
+                        newPos = pos 
+                        await setSelecPieceDest(newPos)
+                        pieceMove(newPos, selecPiece)
+                    }
+                    
+                }     
                 
-            }   
-    /*------------------------------déplacement FOU-----------------------------------*/
+                
+                        //réinitialisation des variables pour le prochain déplacement 
+                        
+                        setSelecPiece('')
+                        newPos = ""
+                    }
 
-    if (selecPiece.includes('FouBlanc') || selecPiece.includes('FouNoir')) {
-        if (
-        
-            (parseInt(pos[0] - selecPiecePos[0]) * 9 ) + parseInt(selecPiecePos) === parseInt(pos) || 
-            (parseInt(pos[0] - selecPiecePos[0]) * 11 ) + parseInt(selecPiecePos) === parseInt(pos) 
-            
-
-        ) { 
-            newPos = pos 
-            await setSelecPieceDest(newPos)
-            pieceMove(newPos, selecPiece)
-        }
-        
-    }  
-    /*------------------------------déplacement CAVALIER-----------------------------------*/
-    if (selecPiece.includes('CavaBlanc') || selecPiece.includes('CavaNoir')) {
-        if (
-        
-            parseInt(pos) - 19 === parseInt(selecPiecePos) ||
-            parseInt(pos) - 21 === parseInt(selecPiecePos) ||
-            parseInt(pos) +19 === parseInt(selecPiecePos) ||
-            parseInt(pos) +21 === parseInt(selecPiecePos) ||
-            parseInt(pos) + 8 === parseInt(selecPiecePos) ||
-            parseInt(pos) -8 === parseInt(selecPiecePos) ||
-            parseInt(pos) + 12 === parseInt(selecPiecePos) ||
-            parseInt(pos) - 12 === parseInt(selecPiecePos) 
-            
-
-        ) { 
-            newPos = pos 
-            await setSelecPieceDest(newPos)
-            pieceMove(newPos, selecPiece)
-        }
-        
-    }     
-    
-    
-            //réinitialisation des variables pour le prochain déplacement 
-            
-            setSelecPiece('')
-            newPos = ""
         }
     }
 /*----------------------------déplacement de la pièce-------------------------------*/
     const pieceMove= (newPos) => {
-        console.log(selecPiece)
         board.map(r => r.row.map(c => {
-
             if (c.piece !== undefined) {
                 if(c.piece.includes(selecPiece)) {
                     c.piece = ''
