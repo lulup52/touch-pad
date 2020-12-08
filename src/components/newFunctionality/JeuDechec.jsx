@@ -6,12 +6,13 @@ import HeaderMenu from '../HeaderMenu'
 
 
 function JeuDechec() {
+    //gestion du tour par tour
     const [board, setBoard] = useState([''])
     const boardDimension = 8
     const [selecPiece, setSelecPiece] = useState('')
     const [selecPiecePos, setSelecPiecePos] = useState('')
     const [selecPieceDest, setSelecPieceDest] = useState('')
-    const [isPieceSelected, setIsPieceSelected] = useState(false)
+    const [joueur, setJoueur] = useState('Blanc')
 
 /*-------------------Création du tableau ---------------------*/
     useEffect( () => {
@@ -112,10 +113,17 @@ function JeuDechec() {
 /*---------------------------gestion de la sélection des pièces----------------------------------------*/
     const selectionPiece = (e, pos, piece)  =>  {
         if (piece !== undefined && piece !== '') {
+            if(joueur.includes('Blanc') && e.target.id.includes('Blanc') || joueur.includes('Noir') && e.target.id.includes('Noir') ) {
+                setSelecPiece(e.target.id)
+                setSelecPiecePos(pos)
+                setSelecPieceDest("")
+                if (e.target.id.includes('Blanc')) {
+                    setJoueur('Noir') 
+                } else {
+                    setJoueur('Blanc')
+                }
 
-            setSelecPiece(e.target.id)
-            setSelecPiecePos(pos)
-            setSelecPieceDest("")
+            }
 
         }
         
@@ -245,6 +253,7 @@ function JeuDechec() {
                     
                    
                 }
+                // deplacement cavalier
                 if (piece.includes('Cava')) {
 
                     if (
@@ -268,6 +277,7 @@ function JeuDechec() {
 
 
                 }
+                // deplacement fou
                 if (piece.includes('Fou')) {
                     if (
                         (parseInt(pos[0] - c.case[0]) * 9 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) < parseInt(c.case)
@@ -325,6 +335,7 @@ function JeuDechec() {
                     }
                    
                 }
+                // deplacement dame
                 if (piece.includes('Dame')) {
                     if (
                         (parseInt(pos[0] - c.case[0]) * 9 ) + parseInt(c.case) === parseInt(pos) && parseInt(pos) < parseInt(c.case)
@@ -434,6 +445,7 @@ function JeuDechec() {
                     }
                    
                 }
+                // deplacement roi
                 if (piece.includes('Roi')) {
                     if (
                         parseInt(pos) +9 === parseInt(c.case)
