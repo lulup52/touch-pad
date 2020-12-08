@@ -117,7 +117,6 @@ function JeuDechec() {
             setSelecPiecePos(pos)
             setSelecPieceDest("")
 
-            // console.log(`jai sélectioné la pièce ${e.target.id}, sur la case ${pos}` )
         }
         
         
@@ -550,8 +549,7 @@ function JeuDechec() {
         
         piecesPrenables.push(...pieceBasPrenable, ...pieceDroitePrenable, ...pieceGauchePrenable, ...pieceHautPrenable, ...pieceBGPrenable, ...pieceBDPrenable, ...pieceHDPrenable, ...pieceHGPrenable)
         selectableCases.push(...haut, ...bas, ...droite, ...gauche, ...diagHG, ...diagHD)
-        console.log(piecesPrenables)
-        
+        //afiche les case où la piece peut etre déplacée ou les piecesa dverses pouvant etre prises
         board.map(r => r.row.map(c => {
             selectableCases.forEach(exemple => {
                 if(parseInt(c.case) === parseInt(exemple)) {
@@ -580,15 +578,18 @@ function JeuDechec() {
 /*---------------------------gestion de la destination de la pièce sélectionée----------------------------------------*/
 
     const ChosePieceDest = async(e, pos, piece) => {
-
+        console.log(pos)
         let newPos = ""
-        if (e.target.classList.value.includes("selectable")) {
-            
-                    if (selecPiece !== '' && e.target.id === '') {
+        let choosepiece = false
+        if (e.target.classList.value.includes("selectable") || e.target.classList.value.includes("piecePrenable")) {
                 /*------------------------------déplacement pion noir-----------------------------------*/
                         if (selecPiece.includes('PionNoir')) {
             
-                            if (parseInt(selecPiecePos[0]) > parseInt(pos[0]) && parseInt(pos[0]) >= parseInt(selecPiecePos[0]) - 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) {
+                            if (e.target.classList.value.includes("piecePrenable") && parseInt(selecPiecePos) - 9 === parseInt(pos) || parseInt(selecPiecePos) - 11 === parseInt(pos)){
+                                newPos = pos
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            } else if (parseInt(selecPiecePos[0]) > parseInt(pos[0]) && parseInt(pos[0]) >= parseInt(selecPiecePos[0]) - 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) {
                                 newPos = pos
                                 await setSelecPieceDest(newPos)
                                 pieceMove(newPos, selecPiece)
@@ -596,11 +597,21 @@ function JeuDechec() {
                         }
                 /*------------------------------déplacement pion blanc-----------------------------------*/
                         if (selecPiece.includes('PionBlanc')) {
-                            if (parseInt(selecPiecePos[0]) < parseInt(pos[0]) && parseInt(pos[0]) <= parseInt(selecPiecePos[0]) + 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) { 
+                            if (e.target.classList.value.includes("piecePrenable") && parseInt(selecPiecePos)+ 9 === parseInt(pos) || parseInt(selecPiecePos)+ 11 === parseInt(pos)){
+                                newPos = pos
+                                await setSelecPieceDest(newPos)
+                                pieceMove(newPos, selecPiece)
+                            } else if (e.target.classList.value.includes("selectable")  && parseInt(selecPiecePos[0]) < parseInt(pos[0]) && parseInt(pos[0]) <= parseInt(selecPiecePos[0]) + 2 && parseInt(selecPiecePos[1]) === parseInt(pos[1])) { 
                                 newPos = pos
                                 await setSelecPieceDest(newPos)
                                 pieceMove(newPos, selecPiece)
                             }
+
+
+                           
+
+
+
                         }
                 /*------------------------------déplacement TOUR -----------------------------------*/
             
@@ -691,15 +702,16 @@ function JeuDechec() {
                         
                         setSelecPiece('')
                         newPos = ""
-                    }
 
         }
     }
 /*----------------------------déplacement de la pièce-------------------------------*/
     const pieceMove= (newPos) => {
         board.map(r => r.row.map(c => {
+            c.state ='caseWithe'
             if (c.piece !== undefined) {
                 if(c.piece.includes(selecPiece)) {
+
                     c.piece = ''
                 }
             }
