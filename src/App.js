@@ -15,8 +15,8 @@ import JeuDechec from './components/newFunctionality/JeuDechec'
 function App() {
   return (
     <div >
-    <div>helloooooo</div>
-    <a href="/menu">test</a>
+    <div>helloooojhsthsjoo</div>
+    <a href="#menu">test</a>
       <Router>
         <Switch>
           <Route path ="/menu"><Menu /></Route>
