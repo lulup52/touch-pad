@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/touch-pad/static/css/main.66d5ab0c.chunk.css",
-    "main.js": "/touch-pad/static/js/main.a0e0dad0.chunk.js",
-    "main.js.map": "/touch-pad/static/js/main.a0e0dad0.chunk.js.map",
+    "main.js": "/touch-pad/static/js/main.fd33ebec.chunk.js",
+    "main.js.map": "/touch-pad/static/js/main.fd33ebec.chunk.js.map",
     "runtime-main.js": "/touch-pad/static/js/runtime-main.7a9ca90d.js",
     "runtime-main.js.map": "/touch-pad/static/js/runtime-main.7a9ca90d.js.map",
     "static/css/2.e3f36e05.chunk.css": "/touch-pad/static/css/2.e3f36e05.chunk.css",
     "static/js/2.03987393.chunk.js": "/touch-pad/static/js/2.03987393.chunk.js",
     "static/js/2.03987393.chunk.js.map": "/touch-pad/static/js/2.03987393.chunk.js.map",
     "index.html": "/touch-pad/index.html",
-    "precache-manifest.9382f4191733f4a3f335f4e3aa62b444.js": "/touch-pad/precache-manifest.9382f4191733f4a3f335f4e3aa62b444.js",
+    "precache-manifest.bf69c828dead92f85a254d128e6c155f.js": "/touch-pad/precache-manifest.bf69c828dead92f85a254d128e6c155f.js",
     "service-worker.js": "/touch-pad/service-worker.js",
     "static/css/2.e3f36e05.chunk.css.map": "/touch-pad/static/css/2.e3f36e05.chunk.css.map",
     "static/css/main.66d5ab0c.chunk.css.map": "/touch-pad/static/css/main.66d5ab0c.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.e3f36e05.chunk.css",
     "static/js/2.03987393.chunk.js",
     "static/css/main.66d5ab0c.chunk.css",
-    "static/js/main.a0e0dad0.chunk.js"
+    "static/js/main.fd33ebec.chunk.js"
   ]
 }
