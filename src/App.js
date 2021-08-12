@@ -14,6 +14,7 @@ import JeuDechec from './components/newFunctionality/JeuDechec'
 function App() {
   return (
     <div >
+      hello
       <Router>
         <Switch>
           <Route path ="/menu"><Menu /></Route>
