@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "88f66714eb19a2b3a519b30e672fb3ae",
+    "revision": "f22127317140477f9c4f4c9778e90b66",
     "url": "/touch-pad/index.html"
   },
   {
