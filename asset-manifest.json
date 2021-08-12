@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/touch-pad/static/css/main.66d5ab0c.chunk.css",
-    "main.js": "/touch-pad/static/js/main.fd33ebec.chunk.js",
-    "main.js.map": "/touch-pad/static/js/main.fd33ebec.chunk.js.map",
-    "runtime-main.js": "/touch-pad/static/js/runtime-main.7a9ca90d.js",
-    "runtime-main.js.map": "/touch-pad/static/js/runtime-main.7a9ca90d.js.map",
-    "static/css/2.e3f36e05.chunk.css": "/touch-pad/static/css/2.e3f36e05.chunk.css",
-    "static/js/2.03987393.chunk.js": "/touch-pad/static/js/2.03987393.chunk.js",
-    "static/js/2.03987393.chunk.js.map": "/touch-pad/static/js/2.03987393.chunk.js.map",
-    "index.html": "/touch-pad/index.html",
-    "precache-manifest.bf69c828dead92f85a254d128e6c155f.js": "/touch-pad/precache-manifest.bf69c828dead92f85a254d128e6c155f.js",
-    "service-worker.js": "/touch-pad/service-worker.js",
-    "static/css/2.e3f36e05.chunk.css.map": "/touch-pad/static/css/2.e3f36e05.chunk.css.map",
-    "static/css/main.66d5ab0c.chunk.css.map": "/touch-pad/static/css/main.66d5ab0c.chunk.css.map",
-    "static/js/2.03987393.chunk.js.LICENSE.txt": "/touch-pad/static/js/2.03987393.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/touch-pad/static/media/logo.ee7cd8ed.svg"
+    "main.css": "/touch-pad/menu/static/css/main.66d5ab0c.chunk.css",
+    "main.js": "/touch-pad/menu/static/js/main.24b5ff89.chunk.js",
+    "main.js.map": "/touch-pad/menu/static/js/main.24b5ff89.chunk.js.map",
+    "runtime-main.js": "/touch-pad/menu/static/js/runtime-main.28e1e035.js",
+    "runtime-main.js.map": "/touch-pad/menu/static/js/runtime-main.28e1e035.js.map",
+    "static/css/2.e3f36e05.chunk.css": "/touch-pad/menu/static/css/2.e3f36e05.chunk.css",
+    "static/js/2.03987393.chunk.js": "/touch-pad/menu/static/js/2.03987393.chunk.js",
+    "static/js/2.03987393.chunk.js.map": "/touch-pad/menu/static/js/2.03987393.chunk.js.map",
+    "index.html": "/touch-pad/menu/index.html",
+    "precache-manifest.fac66298107a0ac5a03d817010a5e5a9.js": "/touch-pad/menu/precache-manifest.fac66298107a0ac5a03d817010a5e5a9.js",
+    "service-worker.js": "/touch-pad/menu/service-worker.js",
+    "static/css/2.e3f36e05.chunk.css.map": "/touch-pad/menu/static/css/2.e3f36e05.chunk.css.map",
+    "static/css/main.66d5ab0c.chunk.css.map": "/touch-pad/menu/static/css/main.66d5ab0c.chunk.css.map",
+    "static/js/2.03987393.chunk.js.LICENSE.txt": "/touch-pad/menu/static/js/2.03987393.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/touch-pad/menu/static/media/logo.ee7cd8ed.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7a9ca90d.js",
+    "static/js/runtime-main.28e1e035.js",
     "static/css/2.e3f36e05.chunk.css",
     "static/js/2.03987393.chunk.js",
     "static/css/main.66d5ab0c.chunk.css",
-    "static/js/main.fd33ebec.chunk.js"
+    "static/js/main.24b5ff89.chunk.js"
   ]
 }
