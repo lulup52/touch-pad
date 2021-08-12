@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/touch-pad/static/css/main.0d17611a.chunk.css",
+    "main.js": "/touch-pad/static/js/main.b0dc7739.chunk.js",
+    "main.js.map": "/touch-pad/static/js/main.b0dc7739.chunk.js.map",
+    "runtime-main.js": "/touch-pad/static/js/runtime-main.7a9ca90d.js",
+    "runtime-main.js.map": "/touch-pad/static/js/runtime-main.7a9ca90d.js.map",
+    "static/css/2.e3f36e05.chunk.css": "/touch-pad/static/css/2.e3f36e05.chunk.css",
+    "static/js/2.03987393.chunk.js": "/touch-pad/static/js/2.03987393.chunk.js",
+    "static/js/2.03987393.chunk.js.map": "/touch-pad/static/js/2.03987393.chunk.js.map",
+    "index.html": "/touch-pad/index.html",
+    "precache-manifest.be3e3e186893418e1c2218f03e78cbb9.js": "/touch-pad/precache-manifest.be3e3e186893418e1c2218f03e78cbb9.js",
+    "service-worker.js": "/touch-pad/service-worker.js",
+    "static/css/2.e3f36e05.chunk.css.map": "/touch-pad/static/css/2.e3f36e05.chunk.css.map",
+    "static/css/main.0d17611a.chunk.css.map": "/touch-pad/static/css/main.0d17611a.chunk.css.map",
+    "static/js/2.03987393.chunk.js.LICENSE.txt": "/touch-pad/static/js/2.03987393.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/touch-pad/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7a9ca90d.js",
+    "static/css/2.e3f36e05.chunk.css",
+    "static/js/2.03987393.chunk.js",
+    "static/css/main.0d17611a.chunk.css",
+    "static/js/main.b0dc7739.chunk.js"
+  ]
+}
