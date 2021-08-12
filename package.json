@@ -1,6 +1,6 @@
 {
-  "homepage": "https://lulup52.github.io/touch-pad/menu",
   "name": "touch-pad",
+  "homepage": "https://lulup52.github.io/touch-pad/menu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
