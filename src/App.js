@@ -16,7 +16,7 @@ function App() {
   return (
     <div >
     <div>helloooojhsthsjoo</div>
-    <a href="#menu">test</a>
+    <a href="touch-pad/menu">test</a>
       <Router>
         <Switch>
           <Route path ="/menu"><Menu /></Route>
