@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/touch-pad/precache-manifest.be3e3e186893418e1c2218f03e78cbb9.js"
+  "/touch-pad/precache-manifest.9382f4191733f4a3f335f4e3aa62b444.js"
 );
 
 self.addEventListener('message', (event) => {
