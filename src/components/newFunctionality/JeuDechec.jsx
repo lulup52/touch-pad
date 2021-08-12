@@ -12,7 +12,7 @@ function JeuDechec() {
     const [selecPiece, setSelecPiece] = useState('')
     const [selecPiecePos, setSelecPiecePos] = useState('')
     const [selecPieceDest, setSelecPieceDest] = useState('')
-    const [joueur, setJoueur] = useState('Blanc')
+    const [joueurNoir, setJoueurNoir] = useState(false)
 
 /*-------------------Création du tableau ---------------------*/
     useEffect( () => {
@@ -23,13 +23,32 @@ function JeuDechec() {
     
     let table =[]
     let tableRow =[]
-    
+    let configNB = true
     for (let i=1; i<= boardDimension; i++ ) {
          let tableRow =[]
         for (let j=1; j<= boardDimension; j++ ) {
-            const item = {case : `${i}${j}`, state : "caseWithe" }
-            tableRow.push(item)
+            if(configNB) {
+                if (j % 2 !== 0) {
+                    const item = {case : `${i}${j}`, color : "caseWithe" }
+                    tableRow.push(item)
+                } else {
+                    const item = {case : `${i}${j}`, color : "caseBlack" }
+                    tableRow.push(item)
+
+                }
+            } else {
+                    if (j % 2 !== 0) {
+                        const item = {case : `${i}${j}`, color : "caseBlack" }
+                        tableRow.push(item)
+                    } else {
+                        const item = {case : `${i}${j}`, color : "caseWithe" }
+                        tableRow.push(item)
+    
+                    }
+            }
         }   
+        configNB = !configNB
+
         table.push({row : tableRow})
     }
 //---------------------------- création pièces ------------------------------------/ 
@@ -113,15 +132,11 @@ function JeuDechec() {
 /*---------------------------gestion de la sélection des pièces----------------------------------------*/
     const selectionPiece = (e, pos, piece)  =>  {
         if (piece !== undefined && piece !== '') {
-            if(joueur.includes('Blanc') && e.target.id.includes('Blanc') || joueur.includes('Noir') && e.target.id.includes('Noir') ) {
+            if(!joueurNoir && e.target.id.includes('Blanc') || joueurNoir && e.target.id.includes('Noir') ) {
                 setSelecPiece(e.target.id)
                 setSelecPiecePos(pos)
                 setSelecPieceDest("")
-                if (e.target.id.includes('Blanc')) {
-                    setJoueur('Noir') 
-                } else {
-                    setJoueur('Blanc')
-                }
+               
 
             }
 
@@ -733,6 +748,8 @@ function JeuDechec() {
 
         }
         ))
+        setJoueurNoir(!joueurNoir)
+        console.log(joueurNoir)
     }
 
 
@@ -751,7 +768,7 @@ function JeuDechec() {
                     {row.row.map((kase) => 
                     /*liste de boutons*/ 
 
-                        <button id={kase.piece} type='button' value={kase.case} className={`${kase.state} ${selecPiece === kase.piece && selecPiece !== '' ? 'seleced' : "" }`} onClick={(e) => handlePieceMove(e, kase.case, kase.piece)}>
+                        <button id={kase.piece} type='button' value={kase.case} className={`${kase.state} ${kase.color} ${selecPiece === kase.piece && selecPiece !== '' ? 'seleced' : "" }`} onClick={(e) => handlePieceMove(e, kase.case, kase.piece)}>
                             {kase.piece}
                             
                         </button>
@@ -765,7 +782,7 @@ function JeuDechec() {
   );
 }
 
-export default JeuDechec;
 
+export default JeuDechec;
 
 

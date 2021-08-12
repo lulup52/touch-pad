@@ -8,22 +8,29 @@
     width: 80px;
 }
 
-.blackCase {
+.caseBlack {
     border: solid 1px white;
     background-color: black;
     color: white;
+    height: 80px;
+    width: 80px;
 }
 
 
 /* ----- pièces blanches ------*/
 
 #TourBlancG, #TourBlancD {
-    background-color: green;
-
+    background-image: url('../data/Pieces/tourBlanche.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    
 }
 #FouBlancG, #FouBlancD {
-    background-color: blue;
-
+    background-image: url('../data/Pieces/fouBlanc.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 #CavaBlancG, #CavaBlancD {
     background-color: red;
@@ -38,8 +45,10 @@
 
 }
 #PionBlanc1, #PionBlanc2, #PionBlanc3, #PionBlanc4, #PionBlanc5, #PionBlanc6, #PionBlanc7, #PionBlanc8  {
-    background-color: yellow;
-
+    background-image: url('../data/Pieces/pionBlanc.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 
@@ -91,7 +100,7 @@
 }
 
 .piecePrenable {
-    outline: dashed rgb(223, 0, 48);
+    outline: dashed rgb(0, 223, 30);
     outline-offset: -5px;
     height: 80px;
     width: 80px;

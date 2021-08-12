@@ -1,0 +1,21 @@
+.mapContainer {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 2rem;
+    height: 1rem;
+    width: 1rem;
+
+}
+
+.mine {
+    background-color: red;
+}

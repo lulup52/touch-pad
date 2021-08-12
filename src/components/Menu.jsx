@@ -21,6 +21,10 @@ function Menu() {
             <Link className='choiMenu' to='/jeudechec'>
                 <div>chest</div>
             </Link> 
+            <Link className='choiMenu' to='/demineur'>
+                <div>Démineur</div>
+            </Link> 
+            
            
        </div>
        
