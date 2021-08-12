@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from './components/MainPage'
 import Menu from './components/Menu'
 import AllSounds from './components/AllSounds'
+
 import MyPads from './components/MyPads'
 import BlackSquare from './components/newFunctionality/testBlackSquare'
 import Demineur from './components/newFunctionality/Demineur'
@@ -14,7 +15,8 @@ import JeuDechec from './components/newFunctionality/JeuDechec'
 function App() {
   return (
     <div >
-      hello
+    <div>helloooooo</div>
+    <a href="/menu">test</a>
       <Router>
         <Switch>
           <Route path ="/menu"><Menu /></Route>
@@ -30,8 +32,6 @@ function App() {
   );
 }
 
-
-const input = document.getElementsByTagName("input")
 
 
 export default App;
