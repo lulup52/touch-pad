@@ -12,3 +12,33 @@
     padding: 2rem;
     color: white;
 }
+
+.blackSquareApp {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.squareGamesContainer {
+display: flex;
+width: 100%;
+justify-content: space-around;
+}
+.tableContainer {
+width: fit-content;
+}
+
+.control {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+.mooveButton {
+    padding: 1.5rem;
+}
+

@@ -12,14 +12,14 @@ function Menu() {
             <Link className='choiMenu' to='/allsounds'>
                 <div>All sounds</div>
             </Link> 
-            <Link className='choiMenu' to='/mypads'>
+            {/* <Link className='choiMenu' to='/mypads'>
                 <div>My pads</div>
-            </Link> 
+            </Link>  */}
             <Link className='choiMenu' to='/blackSquare'>
                 <div>blacksquare tests</div>
             </Link> 
             <Link className='choiMenu' to='/jeudechec'>
-                <div>chest</div>
+                <div>Jeu D'echec</div>
             </Link> 
             <Link className='choiMenu' to='/demineur'>
                 <div>Démineur</div>
