@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from './components/MainPage'
 import Menu from './components/Menu'
 import AllSounds from './components/AllSounds'
@@ -15,8 +15,7 @@ import JeuDechec from './components/newFunctionality/JeuDechec'
 function App() {
   return (
     <div >
-    <div>helloooojhsthsjoo</div>
-    <a href="touch-pad/menu">test</a>
+  
       <Router>
         <Switch>
           <Route path ="/menu"><Menu /></Route>
