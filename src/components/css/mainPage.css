@@ -21,6 +21,14 @@
     border-radius: 45px;
 }
 
+.paraIntro {
+display: flex;
+flex-direction: column;
+text-align: center;
+width: 60%;
+font-size: 1.6rem;
+}
+
 .vh40 {
     height: 40vh;
 }
