@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/touch-pad/static/css/main.6f06b426.chunk.css",
-    "main.js": "/touch-pad/static/js/main.67dcbef9.chunk.js",
-    "main.js.map": "/touch-pad/static/js/main.67dcbef9.chunk.js.map",
+    "main.css": "/touch-pad/static/css/main.91f1564f.chunk.css",
+    "main.js": "/touch-pad/static/js/main.0e76d49a.chunk.js",
+    "main.js.map": "/touch-pad/static/js/main.0e76d49a.chunk.js.map",
     "runtime-main.js": "/touch-pad/static/js/runtime-main.7a9ca90d.js",
     "runtime-main.js.map": "/touch-pad/static/js/runtime-main.7a9ca90d.js.map",
     "static/css/2.e3f36e05.chunk.css": "/touch-pad/static/css/2.e3f36e05.chunk.css",
     "static/js/2.a5bad7f0.chunk.js": "/touch-pad/static/js/2.a5bad7f0.chunk.js",
     "static/js/2.a5bad7f0.chunk.js.map": "/touch-pad/static/js/2.a5bad7f0.chunk.js.map",
     "index.html": "/touch-pad/index.html",
-    "precache-manifest.cd13dc7481b41e82e22672617778cf6a.js": "/touch-pad/precache-manifest.cd13dc7481b41e82e22672617778cf6a.js",
+    "precache-manifest.5944f780a4017f135085a6ad6e67baa8.js": "/touch-pad/precache-manifest.5944f780a4017f135085a6ad6e67baa8.js",
     "service-worker.js": "/touch-pad/service-worker.js",
     "static/css/2.e3f36e05.chunk.css.map": "/touch-pad/static/css/2.e3f36e05.chunk.css.map",
-    "static/css/main.6f06b426.chunk.css.map": "/touch-pad/static/css/main.6f06b426.chunk.css.map",
+    "static/css/main.91f1564f.chunk.css.map": "/touch-pad/static/css/main.91f1564f.chunk.css.map",
     "static/js/2.a5bad7f0.chunk.js.LICENSE.txt": "/touch-pad/static/js/2.a5bad7f0.chunk.js.LICENSE.txt",
     "static/media/logo.svg": "/touch-pad/static/media/logo.ee7cd8ed.svg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.7a9ca90d.js",
     "static/css/2.e3f36e05.chunk.css",
     "static/js/2.a5bad7f0.chunk.js",
-    "static/css/main.6f06b426.chunk.css",
-    "static/js/main.67dcbef9.chunk.js"
+    "static/css/main.91f1564f.chunk.css",
+    "static/js/main.0e76d49a.chunk.js"
   ]
 }
