@@ -17,7 +17,7 @@ function MainPage() {
           </p>
           <p>
             Vous y trouverez des choses fonctionnelles, d'autres pas du tout. Mais même si tout ne marche pas, venez jeter un coup d'oeil, cliquez, regardez, testez et décortiquez si vous le souhaitez. Pour les plus téméraires, vous trouverez le lien du repo GitHub ici : 
-            <a href="https://github.com/lulup52/touch-pad"> !!! par ici le repo !!!</a>
+            <a href="https://github.com/lulup52/touch-pad" target="_blank"> !!! par ici le repo !!!</a>
           </p>
           <p>
             Il ne me reste plus qu'à vous souhaiter bonne visite 

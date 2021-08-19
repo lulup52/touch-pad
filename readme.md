@@ -1,6 +1,6 @@
 ### Présentation du projet  
 
-(vou pouvez accédé à une version en déploiement via l'adresse https://lulup52.github.io/touch-pad/#/)
+(vous pouvez accéder à une version en déploiement via l'adresse https://lulup52.github.io/touch-pad/#/)
 
 Vous vous trouvez ici dans un espace que j'ai créé afin d'expérimenter. Tout ce qui est ici n'est pas forcément fonctionnel, mais me permet de metre les mains dans le camboui en faisant des tests.
 
