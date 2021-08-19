@@ -16,7 +16,7 @@ function MainPage() {
             Ce projet devait, à la base, être un touch-pad, sorte de clavier virtuel permettant de jouer des sons mais qui à ... disons ... muté! Chaque "projet" présent ici est prétexte à exercice et sera susceptible d'être développé plus en profondeur dans le futur.
           </p>
           <p>
-            Vous y trouverez des choses fonctionnelles, d'autres pas du tout. Mais même si tout ne marche pas, venez jeter un coup d'oeil, cliquez, regardez, testez et décortiquez si vous le souhaitez. Pour les plus téméraires, vous trouverez le lien du repo GitHub ici : 
+            Notez que pour le moment, l'utilisation autre qu'en mode desktop n'est pas mise en place. Vous y trouverez des choses fonctionnelles, d'autres pas du tout. Mais même si tout ne marche pas, venez jeter un coup d'oeil, cliquez, regardez, testez et décortiquez si vous le souhaitez. Pour les plus téméraires, vous trouverez le lien du repo GitHub ici : 
             <a href="https://github.com/lulup52/touch-pad" target="_blank"> !!! par ici le repo !!!</a>
           </p>
           <p>
