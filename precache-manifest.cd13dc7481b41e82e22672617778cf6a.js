@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "48c86e84a7e219e0ac1ea881f012fc93",
+    "revision": "cc138ad5ea436bdc3223a47458f7acd8",
     "url": "/touch-pad/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/touch-pad/static/css/2.e3f36e05.chunk.css"
   },
   {
-    "revision": "9332f5de397b18d787d9",
-    "url": "/touch-pad/static/css/main.f1e58185.chunk.css"
+    "revision": "17be02aefde3c9d0ef8a",
+    "url": "/touch-pad/static/css/main.6f06b426.chunk.css"
   },
   {
     "revision": "37fb8a04b31052c50cf3",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/touch-pad/static/js/2.a5bad7f0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9332f5de397b18d787d9",
+    "revision": "17be02aefde3c9d0ef8a",
     "url": "/touch-pad/static/js/main.67dcbef9.chunk.js"
   },
   {
