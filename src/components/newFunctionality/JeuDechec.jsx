@@ -13,6 +13,7 @@ function JeuDechec() {
     const [selecPiecePos, setSelecPiecePos] = useState('')
     const [selecPieceDest, setSelecPieceDest] = useState('')
     const [joueurNoir, setJoueurNoir] = useState(false)
+    const [win, setWin] = useState('')
 
 /*-------------------Création du tableau ---------------------*/
     useEffect( () => {
@@ -576,7 +577,7 @@ function JeuDechec() {
         
         piecesPrenables.push(...pieceBasPrenable, ...pieceDroitePrenable, ...pieceGauchePrenable, ...pieceHautPrenable, ...pieceBGPrenable, ...pieceBDPrenable, ...pieceHDPrenable, ...pieceHGPrenable)
         selectableCases.push(...haut, ...bas, ...droite, ...gauche, ...diagHG, ...diagHD)
-        //afiche les case où la piece peut etre déplacée ou les piecesa dverses pouvant etre prises
+        //afiche les case où la piece peut etre déplacée ou les pieces adverses pouvant etre prises
         board.map(r => r.row.map(c => {
             selectableCases.forEach(exemple => {
                 if(parseInt(c.case) === parseInt(exemple)) {
@@ -749,7 +750,16 @@ function JeuDechec() {
         }
         ))
         setJoueurNoir(!joueurNoir)
-        console.log(joueurNoir)
+
+        /*-------------- gestion de la condition de victoire -------------------*/
+        if (document.querySelector("#RoiBlanc") === null || document.querySelector("#RoiNoir") === null) {
+            if (document.querySelector("#RoiNoir") === null) {
+                setWin('blanc')
+            } else if (document.querySelector("#RoiBlanc") === null ) {
+                setWin('noir')
+
+            }
+        }
     }
 
 
@@ -758,6 +768,7 @@ function JeuDechec() {
 
     <div className="mainPage">
         <HeaderMenu />
+        <p>{`Tour du joueur ${!joueurNoir ? "joueur blanc" : "joueur noir"}`}</p>
         <div className='tableau'>
             {
             board === undefined ? '' 
@@ -777,7 +788,15 @@ function JeuDechec() {
         
             }   
         </div>
-       
+       {
+           win !== "" ? 
+            <div className="modalChestWin" onClick={()=> window.location.reload()}>
+                <p className="winText">{`joueur ${win} gagne`}</p>
+                <p className="winText">Cliquez ici pour relancer une partie</p>
+            </div> 
+            : 
+            ""
+       }
     </div>
   );
 }
