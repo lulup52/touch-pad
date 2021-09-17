@@ -24,6 +24,9 @@ function Menu() {
             <Link className='choiMenu' to='/demineur'>
                 <div>Démineur</div>
             </Link> 
+            <Link className='choiMenu' to='/testcss'>
+                <div>Test animation</div>
+            </Link> 
             
            
        </div>
