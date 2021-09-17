@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderMenu from '../HeaderMenu'
-import '../css/sass/animation.css';
+import '../css/animation.css';
 
 
 export default function TestCss() {
