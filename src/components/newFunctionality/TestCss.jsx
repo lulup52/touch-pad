@@ -1,33 +1,24 @@
 import React from 'react';
 import HeaderMenu from '../HeaderMenu'
-import '../css/animation.css';
-
+import '../css/sass/animation.css';
+import SliderRectangleButton from '../microComponents/SliderRectangleButton'
 
 export default function TestCss() {
 
-    const animateSlider = (id) => {
-        let circle = document.getElementById(`circle${id}`)
-        circle.classList.add("circleClicked")
-    }
     
     return (      
   
-        <div className="mainPage">
+        <div className="secondPage">
             <HeaderMenu/>
-            <div id="slider" className="slider">
-                <div id="textContainer" className="textContainer" onClick={()=>animateSlider(1)} >première animation
-                    <div id="circle1" className="circle cicle-top"></div>
-                </div>
-            </div>
-            <div id="slider" className="slider">
-                <div id="textContainer" className="textContainer" onClick={()=>animateSlider(2)} >2eme animation
-                    <div id="circle2" className="circle cicle-left"></div>
-                </div>
-            </div>
-            <div id="slider" className="slider">
-                <div id="textContainer" className="textContainer" onClick={()=>animateSlider(3)} >3eme animation
-                    <div id="circle3" className="circle cicle-bot"></div>
-                </div>
+
+
+            <div id="buttonRectangleContainer">
+
+              <SliderRectangleButton content={"test1"} id={"1"} style={"circle circle-top"}/>
+              <SliderRectangleButton content={"test2"} id={"2"} style={"circle"}/>
+              <SliderRectangleButton content={"test3"} id={"3"} style={"circle circle-bot"}/>
+               
+
             </div>
         </div>
     );
