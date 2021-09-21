@@ -24,8 +24,7 @@ export default function SliderRectangleButton({id,content, style}) {
                 <p>
                     {content}
                 </p>
-                <div className="rectangleBorder">
-                </div>
+              
                 <div id={`circle${id}`} className={`${style}`}></div>
             </div>
         </>
