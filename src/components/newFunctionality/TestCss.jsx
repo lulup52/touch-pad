@@ -3,6 +3,7 @@ import HeaderMenu from '../HeaderMenu'
 import '../css/sass/animation.css';
 import SliderRectangleButton from '../microComponents/SliderRectangleButton'
 import SlidercircleButton from '../microComponents/SlidercircleButton'
+import TreeDotsButton from '../microComponents/TreeDotsButton'
 
 export default function TestCss() {
 
@@ -27,6 +28,13 @@ export default function TestCss() {
               <SlidercircleButton content={"testrond2"} id={"2"} style={"circleContainer"}/>
               <SlidercircleButton content={"testrond3"} id={"3"} style={"circleContainer-left"}/>
                
+
+            </div>
+
+            <div id="buttonRoundContainer">
+
+              <TreeDotsButton />
+             
 
             </div>
         </div>

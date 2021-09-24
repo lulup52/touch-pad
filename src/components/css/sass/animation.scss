@@ -2,13 +2,15 @@ p {
     margin: 0;
 }
 
+
+/*----------------bouton rectangle-----------------*/
 #buttonRectangleContainer {
     position: relative  ;
     overflow: hidden;
     width: fit-content;
     box-sizing: content-box;
-
- 
+    
+    
     .circle {
         transition: 500ms;
         position: absolute;
@@ -26,13 +28,13 @@ p {
     .circle-top {
         top: -3rem;
         left: 1rem;
-    
+        
     }
     
     .circle-bot {
         top: 4rem;
         left: 1rem;
-    
+        
     }
     
     .rectangleFond {
@@ -47,10 +49,10 @@ p {
         background-color: red;
         border: 1px black solid;
         border-radius: 50px;
-    
+        
         box-sizing: border-box;
         border: 5px black solid;
-    
+        
         p {
             padding: 1rem 2rem;
         }
@@ -59,20 +61,21 @@ p {
                 transition: 500ms;
                 left: 1rem;
                 top: .6rem;
-    
+                
             }
         }
     }
     
     .circleClicked {
         transition: 500ms;
-    
+        
         left: 10rem !important;
         top: .6rem !important;
-    
+        
     }
 }
 
+/*----------------bouton rond-----------------*/
 #buttonRoundContainer {
     position: relative  ;
     overflow: hidden;
@@ -86,7 +89,7 @@ p {
         height: 6rem;
         width: 6rem;
         z-index: 1;
-
+        
         .circle {
             margin: 0 auto;
             position: relative;
@@ -99,16 +102,16 @@ p {
             
         }
     }
-
+    
     .circleContainer-top{
         left: -5px;
         top: -4rem;
-
+        
     }
     
     .circleContainer-left{
         left: -5rem;
-
+        
     }
     .circleleFond {
         color: blanchedalmond;
@@ -124,7 +127,7 @@ p {
         background-color: blue;
         border: 1px black solid;
         border-radius: 50px;
-    
+        
         box-sizing: border-box;
         border: 5px black solid;
         
@@ -133,21 +136,103 @@ p {
                 transition: 700ms;
                 left: -5px;
                 top: -.3rem;
-
-    
+                
+                
             }
         }
-
+        
     }
-
+    
     .circleContainerClicked {
         transition: 500ms;
         left: -5px !important;
         top: -.3rem !important;
-
+        
         transform: rotate(360deg)
+        
+    }
+}
+/*----------------bouton 3 ptn-----------------*/
+
+.treeDotsButtonContainer {
+    transition: 500ms;
+    position: relative  ;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    background-color: rgb(255, 97, 216);
+    border-radius: 50px;
+    border: solid 5px black;
+    box-sizing: content-box;
+    color: white;
+    font-size: 4rem;
+
+    .buttonContainer {
+        margin: auto auto;
+        position: relative  ;
+        display: flex;
+     
+        .button {
+            position: relative;
+            transition-property: width, height;
+            transition-duration: 500ms;
+
+            left: 0px;
+            border-radius: 50px;
+            background-color: rgb(185, 0, 139);
+            height: 1rem;
+            width: 1rem;
+            margin: .1rem;
+            box-shadow: 0px 3px 1px black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            i {
+                transition: 500ms;
+                opacity: 0;
+                color: black;
+                font-size: .1rem;
+
+            }
+
+            &:hover {
+                background: white;
+                i {
+                    color: rgb(185, 0, 139);
+    
+                }
+            }
+            
+
+
+        }
+
     
     }
+    &:hover {
+        transition: 500ms;
+        width: 10rem;
+        
+       .button {
+            background-color: rgb(185, 0, 139);
+            height: 3rem;
+            width: 3rem;
+            box-shadow: 0px 6px 1px black;
+            i {
+                transition: 500ms;
+                opacity: 1;
+                color: white;
+                font-size: 2.3rem;
+            }
 
-    
+            &:active {
+               
+                top: 5px;
+                box-shadow: 0px 1px 1px black !important;
+        }
+    }
+}
+}
+.test {
 }
